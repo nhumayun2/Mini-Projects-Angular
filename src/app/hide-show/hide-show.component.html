@@ -1,0 +1,34 @@
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="space-y-4 w-full max-w-md p-6 bg-white shadow-md rounded-lg">
+  
+      <!-- First Div with Show and Hide buttons below -->
+      <div *ngIf="isFirstDivVisible" class="bg-blue-300 p-4 rounded">
+        <h3 class="text-lg font-semibold">First Div</h3>
+      </div>
+      <div class="flex space-x-4">
+        <button (click)="showFirstDiv()" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Show</button>
+        <button (click)="hideFirstDiv()" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Hide</button>
+      </div>
+  
+      <!-- Second Div with Toggle Show/Hide button below -->
+      <div *ngIf="isSecondDivVisible" class="bg-purple-300 p-4 rounded">
+        <h3 class="text-lg font-semibold">Second Div</h3>
+      </div>
+      <div>
+        <button (click)="toggleSecondDiv()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Show/Hide</button>
+      </div>
+  
+      <!-- Third Div with Number Input Fields below -->
+      <div *ngIf="areInputsMatching" class="bg-yellow-300 p-4 rounded">
+        <h3 class="text-lg font-semibold">Third Div</h3>
+      </div>
+      <div class="space-y-4">
+        <input type="number" placeholder="Enter number" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+               [(ngModel)]="input1" (input)="checkInputs()">
+        <input type="number" placeholder="Enter number" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+               [(ngModel)]="input2" (input)="checkInputs()">
+      </div>
+  
+    </div>
+  </body>
+  
