@@ -1,0 +1,170 @@
+<div class="grid grid-cols-4 gap-4 m-4">
+    <!--Radio Button pressed and value show -->
+    <div class="bg-gray-400 p-4">
+        <h2 class="text-lg font-bold text-black">Test Radio Button</h2>
+        <div class="flex items-center">
+            <input type="radio" id="male" name="gender" value="male" class="mr-2">
+            <label for="male" class="text-black">Male</label>
+        </div>
+        <div class="flex items-center">
+            <input type="radio" id="female" name="gender" value="female" class="mr-2">
+            <label for="female" class="text-black">Female</label>
+        </div>
+        <p class="text-white mt-2">{{ checkRadio }}</p>
+    </div>
+    <!--Button will make appear texts-->
+    <div class="bg-gray-400 p-4">
+        <h2 class="text-lg font-bold text-black">Task 2</h2>
+        <div class="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1">
+            <button (click)="setTaskTwo('Infinix,TECHNO,Itel')"
+              class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+            >
+              Phone
+            </button>
+          
+            <button (click)="setTaskTwo('Asus,Lenovo,HP,ACER,DELL')"
+              class="inline-block rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+            >
+              Laptop
+            </button>
+          
+            <button (click)="setTaskTwo('Canon,Nikon,Sony')"
+              class="inline-block rounded-md bg-white px-4 py-2 text-sm text-blue-500 shadow-sm focus:relative"
+            >
+              Camera
+            </button>
+          </div>
+        <p class="text-white mt-2">{{ task2 }}</p>
+    </div>
+    <!--Buton will hide and show the divs-->
+    <div class="bg-gray-400 p-4">
+        <h2 class="text-lg font-bold text-black">Test Radio Button</h2>
+        <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+            <div class="space-y-4 w-full max-w-md p-6 bg-white shadow-md rounded-lg">
+          
+              <!-- First Div with Show and Hide buttons below -->
+              <div *ngIf="firstDivCondition"  class="bg-blue-300 p-4 rounded">
+                <h3 class="text-lg font-semibold">First Div</h3>
+              </div>
+              <div class="flex space-x-4">
+                <button (click)="firstDiv(true)"  class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Show</button>
+                <button (click)="firstDiv(false)"  class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">Hide</button>
+              </div>
+          
+              <!-- Second Div with Toggle Show/Hide button below -->
+              <div *ngIf="secondDivCondition"  class="bg-purple-300 p-4 rounded">
+                <h3 class="text-lg font-semibold">Second Div</h3>
+              </div>
+              <div>
+                <button (click)="secondDiv()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Show/Hide</button>
+              </div>
+          
+              <!-- Third Div with Number Input Fields below -->
+              <div *ngIf="thirdDivCurrentCondition" class="bg-yellow-300 p-4 rounded">
+                <h3 class="text-lg font-semibold">Third Div</h3>
+              </div>
+              <div class="space-y-4">
+                <input [(ngModel)]="thirdDivFInput" (ngModelChange)="thirdDivCondtion()" type="number" placeholder="Enter number" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input [(ngModel)]="thirdDivSInput" (ngModelChange)="thirdDivCondtion()" type="number" placeholder="Enter number" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+              </div>
+            </div>
+          </body>
+    </div>
+
+
+
+    <!--Radio Button pressed and value show -->
+    <div class="bg-gray-400 p-4">
+      <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-4">Personal Information Form</h2>
+      
+        <!-- First Name -->
+        <div class="mb-4">
+          <label class="block text-gray-700">First Name</label>
+          <input [(ngModel)]="firstName" type="text" placeholder="First Name" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      
+        <!-- Last Name -->
+        <div class="mb-4">
+          <label class="block text-gray-700">Last Name</label>
+          <input [(ngModel)]="lastName" type="text" placeholder="Last Name" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      
+        <!-- Full Name -->
+        <div class="mb-4">
+          <label class="block text-gray-700">Full Name</label>
+          <input value="{{firstName}} {{lastName}}" type="text" placeholder="Full Name" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
+        </div>
+      
+        <!-- State -->
+        <div class="mb-4">
+          <label class="block text-gray-700">District</label>
+          <select class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="" disabled>Select...</option>
+            <option value="Lagos">Lagos</option>
+            <option value="Abuja">Abuja</option>
+            <option value="Port Harcourt">Port Harcourt</option>
+          </select>
+        </div>
+      
+        <!-- City -->
+        <div class="mb-4">
+          <label class="block text-gray-700">City</label>
+          <input type="text" placeholder="City" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      
+        <!-- Occupation Select -->
+        <div class="mb-4">
+          <label class="block text-gray-700">Select Occupation</label>
+          <select class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="">Select...</option>
+            <option value="Teacher">Teacher</option>
+            <option value="Sport Person">Sport Person</option>
+            <option value="Musician">Musician</option>
+          </select>
+        </div>
+      
+        <!-- Teacher Details -->
+        <div class="mb-4" >
+          <h3 class="text-lg font-semibold text-gray-700">Teacher Details</h3>
+      
+          <label class="block text-gray-700 mt-2">Subject You Can Teach</label>
+          <input type="text" placeholder="Subject" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+          <label class="block text-gray-700 mt-2">Highest Education</label>
+          <input type="text" placeholder="Highest Education" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+          <label class="block text-gray-700 mt-2">Age</label>
+          <input type="number" placeholder="Age" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      
+        <!-- Sport Person Details -->
+        <div class="mb-4" >
+          <h3 class="text-lg font-semibold text-gray-700">Sport Person Details</h3>
+      
+          <label class="block text-gray-700 mt-2">Sports You Are Good At</label>
+          <input type="text" placeholder="Sports" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+          <label class="block text-gray-700 mt-2">Height</label>
+          <input type="number" placeholder="Height" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+          <label class="block text-gray-700 mt-2">Weight</label>
+          <input type="number" placeholder="Weight" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      
+        <!-- Musician Details -->
+        <div class="mb-4">
+          <h3 class="text-lg font-semibold text-gray-700">Musician Details</h3>
+      
+          <label class="block text-gray-700 mt-2">Instrument You Play</label>
+          <input type="text" placeholder="Instrument" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+          <label class="block text-gray-700 mt-2">Any Major Achievement</label>
+          <input type="text" placeholder="Achievement" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      
+        <button class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200">Submit</button>
+      </div>
+      
+  </div>
+</div>
