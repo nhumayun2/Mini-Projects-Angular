@@ -3,15 +3,16 @@
     <div class="bg-gray-400 p-4">
         <h2 class="text-lg font-bold text-black">Test Radio Button</h2>
         <div class="flex items-center">
-            <input type="radio" id="male" name="gender" value="male" class="mr-2">
+            <input (click)="setRadioValue('Male')" type="radio" id="male" name="gender" value="male" class="mr-2">
             <label for="male" class="text-black">Male</label>
         </div>
         <div class="flex items-center">
-            <input type="radio" id="female" name="gender" value="female" class="mr-2">
+            <input (click)="setRadioValue('Female')" type="radio" id="female" name="gender" value="female" class="mr-2">
             <label for="female" class="text-black">Female</label>
         </div>
         <p class="text-white mt-2">{{ checkRadio }}</p>
     </div>
+
     <!--Button will make appear texts-->
     <div class="bg-gray-400 p-4">
         <h2 class="text-lg font-bold text-black">Task 2</h2>
@@ -96,28 +97,47 @@
           <input value="{{firstName}} {{lastName}}" type="text" placeholder="Full Name" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" disabled>
         </div>
       
-        <!-- State -->
+        <!-- District -->
         <div class="mb-4">
           <label class="block text-gray-700">District</label>
-          <select class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="" disabled>Select...</option>
-            <option value="Lagos">Lagos</option>
-            <option value="Abuja">Abuja</option>
-            <option value="Port Harcourt">Port Harcourt</option>
+          <select [(ngModel)]="selectDistrict" (change)="disctrictValueSet($event)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option  value="" disabled>Select...</option>
+            <option value="Dhaka">Dhaka</option>
+            <option value="Khulna">Khulna</option>
+            <option value="Comilla">Comilla</option>
+            <option value="Barishal">Barishal</option>
+            <option value="Other">Other</option>
           </select>
         </div>
       
-        <!-- City -->
+        <!-- Optional District -->
+        <div class="mb-4" *ngIf="selectDistrict == 'Other'">
+          <label class="block text-gray-700">District</label>
+          <input type="text" placeholder="City" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Area -->
         <div class="mb-4">
-          <label class="block text-gray-700">City</label>
+          <label class="block text-gray-700">Area</label>
+          <select [(ngModel)]="selectArea" (change)="areaValueSet($event)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option  value="" disabled>Select...</option>
+            <option value="Dhaka">City</option>
+            <option value="Khulna">Outside City</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Optional District -->
+        <div class="mb-4" *ngIf="selectArea == 'Other'">
+          <label class="block text-gray-700">Area</label>
           <input type="text" placeholder="City" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
         </div>
       
         <!-- Occupation Select -->
         <div class="mb-4">
           <label class="block text-gray-700">Select Occupation</label>
-          <select class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <option value="">Select...</option>
+          <select [(ngModel)]="selectOccupation" (change)="occupationSet($event)" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="" disabled>Select...</option>
             <option value="Teacher">Teacher</option>
             <option value="Sport Person">Sport Person</option>
             <option value="Musician">Musician</option>
@@ -125,7 +145,7 @@
         </div>
       
         <!-- Teacher Details -->
-        <div class="mb-4" >
+        <div class="mb-4" *ngIf="selectOccupation == 'Teacher'">
           <h3 class="text-lg font-semibold text-gray-700">Teacher Details</h3>
       
           <label class="block text-gray-700 mt-2">Subject You Can Teach</label>
@@ -139,7 +159,7 @@
         </div>
       
         <!-- Sport Person Details -->
-        <div class="mb-4" >
+        <div class="mb-4" *ngIf="selectOccupation == 'Sport Person'">
           <h3 class="text-lg font-semibold text-gray-700">Sport Person Details</h3>
       
           <label class="block text-gray-700 mt-2">Sports You Are Good At</label>
@@ -153,7 +173,7 @@
         </div>
       
         <!-- Musician Details -->
-        <div class="mb-4">
+        <div class="mb-4" *ngIf="selectOccupation == 'Musician'">
           <h3 class="text-lg font-semibold text-gray-700">Musician Details</h3>
       
           <label class="block text-gray-700 mt-2">Instrument You Play</label>
@@ -165,6 +185,36 @@
       
         <button class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200">Submit</button>
       </div>
-      
+  </div>
+
+  <!--Student Table-->
+  <div class="col-span-4 mt-6">
+    <div class="bg-gray-400 p-6 rounded shadow-lg">
+      <h2 class="text-lg font-bold text-black mb-4">Student Table</h2>
+      <div class="overflow-x-auto mt-2">
+        <table class="min-w-full bg-white rounded-lg">
+          <thead class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+            <tr>
+              <th class="py-3 px-6 text-left">Sr</th>
+              <th class="py-3 px-6 text-left">Name</th>
+              <th class="py-3 px-6 text-left">Age</th>
+              <th class="py-3 px-6 text-left">District</th>
+              <th class="py-3 px-6 text-left">Attendance</th>
+              <th class="py-3 px-6 text-left">Gender</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700 text-sm font-light">
+            <tr *ngFor="let student of studentArray; let i = index; modifyData(i)" class="border-b border-gray-200 hover:bg-gray-100">
+              <td class="py-3 px-6 text-left">{{ i + 1 }}</td>
+              <td class="py-3 px-6 text-left">{{ student.name }}</td>
+              <td class="py-3 px-6 text-left">{{ student.age<20 ? student.age + '-UnderAged' : student.age }}</td>
+              <td class="py-3 px-6 text-left">{{ student.district }}</td>
+              <td class="py-3 px-6 text-left">{{ student.attendance<80 ?  student.attendance + '% low' :  student.attendance }}</td>
+              <td class="py-3 px-6 text-left">{{ student.gender }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
