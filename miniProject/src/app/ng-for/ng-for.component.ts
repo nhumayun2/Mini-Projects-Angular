@@ -13,9 +13,18 @@ import { NgFor } from '@angular/common';
 export class NgForComponent {
   cityNames: string[] = ['Dhaka'];
   newCity: string = "";
+  language: string [] = ['Html','CSS','JavaScript','TypeScript','Angular'];
+  
 
   addCityNames(){
+    if(this.newCity.trim() === "") return;
     this.cityNames.push(this.newCity);
     this.newCity = "";
   }
+
+  selectedIndex: number | null = null;
+
+  selectButton(index: number): void {
+    this.selectedIndex = index;
+}
 }
