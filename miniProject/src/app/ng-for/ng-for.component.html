@@ -1,37 +1,125 @@
 <div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-  <div class="p-4 bg-blue-300 shadow-lg rounded-lg border border-gray-200 overflow-auto max-h-[500px]">
-    <h1 class="text-lg font-semibold mb-4">NG_FOR - First Task</h1>
+
+  <!-- First Task -->
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - First Task</h1>
     <input
       [(ngModel)]="newCity"
       type="text"
       placeholder="Enter City Name"
-      class="w-full p-2 border border-gray-300 rounded mb-4"
+      class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
     />
     <button
       (click)="addCityNames()"
-      class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 mb-4"
+      class="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-200 mb-4"
     >
       Add City
     </button>
-    <select
-      class="w-full p-2 border border-gray-300 rounded"
-    >
+    <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
       <option disabled>Select City</option>    
       <option *ngFor="let city of cityNames" [value]="city">
         {{ city }}
       </option>
     </select>
   </div>
-  <div class="p-4 bg-blue-300 shadow-lg rounded-lg border border-gray-200 overflow-auto max-h-[500px]">
-    <h1 class="text-lg font-semibold mb-4">NG_FOR - Second Task</h1>
-    <button 
-  *ngFor="let x of language; let i = index" 
-  (click)="selectButton(i)"
-  [class.bg-green-700]="selectedIndex === i" 
-  class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors duration-300 mb-2 w-full sm:w-auto"
->
-  {{ x }}
-</button>
 
+  <!-- Second Task -->
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - Second Task</h1>
+    <button 
+      *ngFor="let x of language; let i = index" 
+      (click)="selectButton(i)"
+      [class.whenClick]="selectedIndex === i" 
+      class="w-full sm:w-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300 mb-2"
+    >
+      {{ x }}
+    </button>
+  </div>
+
+  <!-- Third Task - Multiplication Table -->
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">Multiplication Table - 3rd Task</h1>
+    <div class="flex items-center mb-4">
+      <input [(ngModel)]="multiply" type="number" class="w-1/2 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button (click)="thirdTask()" class="ml-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300">
+        Generate Table
+      </button>
+    </div>
+    <table class="w-full border border-gray-200 divide-y divide-gray-300">
+      <thead>
+        <tr class="bg-gray-100 text-left">
+          <th class="p-4 text-sm font-medium text-gray-600">Operation</th>
+          <th class="p-4 text-sm font-medium text-gray-600">Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mult of multiplyTable; let i = index" class="hover:bg-gray-50 transition-colors">
+          <td class="p-4 text-sm text-gray-800">{{multiply}} x {{i + 1}}</td>
+          <td class="p-4 text-sm text-gray-800">{{mult}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Fourth Task -->
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - Bind with First Task</h1>
+    <select class="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option disabled selected>From Station</option>    
+      <option *ngFor="let city of cityNames" [value]="city">
+        {{ city }}
+      </option>
+    </select>
+    <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option disabled selected>To Station</option>    
+      <option *ngFor="let city of cityNames" [value]="city">
+        {{ city }}
+      </option>
+    </select>
+  </div>
+
+  <!-- Fifth Task -->
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px] w-full lg:w-[620px]">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - Show Table of Mini Project Links</h1>
+    <table class="w-full border border-gray-200 divide-y divide-gray-300">
+      <thead>
+        <tr class="bg-gray-100 text-left">
+          <th class="p-4 text-sm font-medium text-gray-600">Sr</th>
+          <th class="p-4 text-sm font-medium text-gray-600">Project Name</th>
+          <th class="p-4 text-sm font-medium text-gray-600">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr [class.bg-success]="x == 0" [class.bg-danger]="x==task5.length-1" *ngFor="let task of task5; let x = index" class="hover:bg-gray-50 transition-colors">
+          <td class="p-4 text-sm text-gray-800">{{ x + 1 }}</td>
+          <td class="p-4 text-sm text-gray-800">{{ task.pageUrl }}</td>
+          <td class="p-4 text-sm text-blue-600 underline hover:text-blue-800 cursor-pointer">
+            <a href="{{ task.linkTest }}" target="_blank">{{ task.linkTest }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+  <!-- Sixth Task -->
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
+    <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - Bind with First Task</h1>
+    <select change="sixthTask($event.target.value)" class="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option disabled selected>City</option>    
+      <option *ngFor="let citys of city" [value]="citys.cityId">
+        {{ citys.cityName }}
+      </option>
+    </select>
+    <span>Selected City is: {{sixthTaskPrint}}</span>
+    <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option disabled selected>Station Name</option>    
+      <option *ngFor="let city of cityNames" [value]="city">
+        {{ city }}
+      </option>
+    </select>
   </div>
 </div>
