@@ -99,6 +99,44 @@
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.addSidePanel{
-    
-}
+/* Container class for grid layout */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* col-7 class: 7 out of 12 columns (approximately 58.33%) */
+  .col-7 {
+    width: 58.33%;
+  }
+  
+  /* col-12 class: full width (100%) */
+  .col-12 {
+    width: 100%;
+  }
+  
+  /* Optional: Make the grid responsive */
+  @media (max-width: 768px) {
+    /* On smaller screens, make both columns full width */
+    .col-7, .col-12 {
+      width: 100%;
+    }
+  }
+
+  .ng-success{
+    background-color: rgb(66, 167, 66);
+    color: white;
+  }
+
+  .ng-disable{
+    background-color: rgb(50, 46, 46);
+    color: white;
+  }
+
+  .ng-male{
+    background-color: rgb(48, 48, 211);
+  }
+
+  .ng-female{
+    background-color: rgb(255, 45, 87);
+  }

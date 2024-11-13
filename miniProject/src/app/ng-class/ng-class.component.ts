@@ -27,6 +27,18 @@ export class NgClassComponent implements OnInit {
   languages: string[] = ['Angular', 'React', 'Vue', 'Ember', 'Backbone'];
   currentBtn: number | null = null;
 
+  //task 4
+  sidePanel: boolean = false;
+  firstDivClass: string = '';
+
+  //task 5
+  students: any[] = [
+    { studId: 1, name: "Alice", isActive: true, gender: "Female", state: "CA" },
+    { studId: 2, name: "Bob", isActive: false, gender: "Male", state: "NY" },
+    { studId: 3, name: "Charlie", isActive: true, gender: "Male", state: "TX" },
+    { studId: 4, name: "David", isActive: true, gender: "Male", state: "CA" },
+    { studId: 5, name: "Eve", isActive: false, gender: "Female", state: "NY" }
+  ];
   
 
     ngOnInit(): void {
@@ -54,6 +66,13 @@ export class NgClassComponent implements OnInit {
     }
 
     addSidePanel(){
-      
+      this.sidePanel = true;
+      this.firstDivClass = 'col-7';
     }
+
+    removeSidePanel(){
+      this.sidePanel = false;
+      this.firstDivClass = 'col-12';
+    }
+
 }
