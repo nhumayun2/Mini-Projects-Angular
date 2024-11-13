@@ -1,7 +1,7 @@
-<div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
   <!-- First Task -->
-  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
+  <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px] transition-transform transform hover:scale-105">
     <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - First Task</h1>
     <input
       [(ngModel)]="newCity"
@@ -26,14 +26,16 @@
   <!-- Second Task -->
   <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
     <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - Second Task</h1>
-    <button 
-      *ngFor="let x of language; let i = index" 
-      (click)="selectButton(i)"
-      [class.whenClick]="selectedIndex === i" 
-      class="w-full sm:w-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300 mb-2"
-    >
-      {{ x }}
-    </button>
+    <div class="flex flex-wrap gap-2">
+      <button 
+        *ngFor="let x of language; let i = index" 
+        (click)="selectButton(i)"
+        [class.whenClick]="selectedIndex === i" 
+        class="w-full sm:w-auto px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300 mb-2"
+      >
+        {{ x }}
+      </button>
+    </div>
   </div>
 
   <!-- Third Task - Multiplication Table -->
@@ -103,23 +105,21 @@
 
 </div>
 
-
 <div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
   <!-- Sixth Task -->
   <div class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px]">
     <h1 class="text-2xl font-semibold text-gray-700 mb-6">NG_FOR - Bind with First Task</h1>
-    <select change="sixthTask($event.target.value)" class="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option disabled selected>City</option>    
-      <option *ngFor="let citys of city" [value]="citys.cityId">
-        {{ citys.cityName }}
-      </option>
+    <!--Company-->
+    <select (change)="sixthTask($event)"  class="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option disabled selected>Select Company</option>
+      <option *ngFor="let companys of company?. length? company : []" value="{{companys.id}}">{{companys.name}}</option>
     </select>
-    <span>Selected City is: {{sixthTaskPrint}}</span>
-    <select class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-      <option disabled selected>Station Name</option>    
-      <option *ngFor="let city of cityNames" [value]="city">
-        {{ city }}
-      </option>
+    <span>Selected Element : {{sixthTaskPrint}}</span>
+    <!--Products-->
+    <select (click)="sixthTask($event)"  class="w-full p-3 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <option disabled selected>Select Product</option>
+      <option *ngFor="let products of product" [value]="products.id">{{products.name}}</option>
     </select>
+    <span>Selected Element : {{sixthTaskPrint}}</span>
   </div>
 </div>

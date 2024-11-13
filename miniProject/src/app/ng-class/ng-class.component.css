@@ -1,0 +1,104 @@
+.my-class{
+    background-color: lightblue;
+    padding: 10px;
+    border: 1px solid black;
+    color: rgb(255, 255, 255);
+}
+
+
+.heading{
+    text-align: center;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-success{
+    background-color: rgb(106, 186, 106);
+    color: white;
+}
+
+.bg-danger{
+    background-color: rgb(186, 106, 106);
+    color: white;
+}
+
+
+.buttonStyle{
+    background-color: rgb(34, 69, 130);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buttonStyle:hover {
+    background-color: rgb(24, 49, 90);
+    transform: scale(1.05);
+}
+
+.buttonStyle:active {
+    background-color: rgb(14, 29, 50);
+    transform: scale(0.95);
+}
+
+.buttonStyle-success{
+    background-color: rgb(49, 212, 204);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buttonStyle-success:hover {
+    background-color: rgb(28, 92, 195);
+    transform: scale(1.05);
+}
+
+.buttonStyle-success:active {
+    background-color: rgb(20, 69, 83);
+    transform: scale(0.95);
+}
+
+.buttonStyle-danger{
+    background-color: rgb(229, 97, 36);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.buttonStyle-danger:hover {
+    background-color: rgb(192, 94, 49);
+    transform: scale(1.05);
+}
+
+.buttonStyle-danger:active {
+    background-color: rgb(73, 28, 3);
+    transform: scale(0.95);
+}
+
+.div-success{
+    background-color: seagreen;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.div-danger{
+    background-color: rgb(255, 19, 6);
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.addSidePanel{
+    
+}

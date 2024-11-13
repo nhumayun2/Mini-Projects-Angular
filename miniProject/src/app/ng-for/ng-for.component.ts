@@ -26,29 +26,26 @@ export class NgForComponent {
     {pageUrl:'https://voidchetan.github.io/voidchetan/angular/forms.html', linkTest: 'Forms' },
   ]
   //task6
-  city: any[] = [
-    {cityId: 1, cityName: 'Dhaka'},
-    {cityId: 2, cityName: 'Chittagong'},
-    {cityId: 3, cityName: 'Sylhet'},
-    {cityId: 4, cityName: 'Rajshahi'},
-    {cityId: 5, cityName: 'Khulna'},
-    {cityId: 6, cityName: 'Barishal'},
-    {cityId: 7, cityName: 'Rangpur'},
-    {cityId: 8, cityName: 'Mymensingh'}
-  ];
-
-  station: any[] = [
-    {stationId: 1, stationName: 'Kamalapur'},
-    {stationId: 2, stationName: 'Chittagong'},
-    {stationId: 3, stationName: 'Sylhet'},
-    {stationId: 4, stationName: 'Rajshahi'},
-    {stationId: 5, stationName: 'Khulna'},
-    {stationId: 6, stationName: 'Barishal'},
-    {stationId: 7, stationName: 'Rangpur'},
-    {stationId: 8, stationName: 'Mymensingh'}
+  company: any[] = [
+    {id: 1, name: 'Nvdia'},
+    {id: 2, name: 'Intel'},
+    {id: 3, name: 'AMD'},
+    {id: 4, name: 'Qualcomm'},
   ]
 
-  sixthTaskPrint: number = 0;
+  product: any[] = [
+    {id: 1, name: 'RTX 3090', companyId: 1},
+    {id: 2, name: 'RTX 3080', companyId: 1},
+    {id: 3, name: 'Intel i9', companyId: 2},
+    {id: 4, name: 'Intel i7', companyId: 2},
+    {id: 5, name: 'Ryzen 9', companyId: 3},
+    {id: 6, name: 'Ryzen 7', companyId: 3},
+    {id: 7, name: 'Snapdragon 888', companyId: 4},
+    {id: 8, name: 'Snapdragon 865', companyId: 4}
+  ]
+  
+  //this is bad approach to do this task??
+  sixthTaskPrint: number|null = null;
 
   //first task
   addCityNames(){
@@ -85,9 +82,16 @@ export class NgForComponent {
   //Fifth task didnt need any logics
 
   //Sixth task
-  sixthTask(val: number){
-    this.sixthTaskPrint = val;
-    console.log("Selected city id is: " + val);
+  sixthTask(event: any){
+    this.sixthTaskPrint = event.target.value;
+    console.log(this.sixthTaskPrint);
   }
+
+  testValue: any;
+  //test function
+  /*testFunction(event: any){
+    this.testValue = event.target.value;
+    console.log(this.testValue);
+  }*/
 
 }
