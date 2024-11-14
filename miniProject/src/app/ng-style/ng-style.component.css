@@ -1,0 +1,27 @@
+.firstDiv{
+    height: 120px;
+    width: 120px;
+    background-color:rgb(11, 135, 135);
+    text-align: center;
+    line-height: 120px;
+    color: white;
+}
+
+.bg-success{
+    line-height: 120px;
+    height: 120px;
+    width: 120px;
+    background-color:rgb(11, 135, 135);
+    text-align: center;
+    background-color: rgb(106, 186, 106);
+    color: white;
+}
+
+.bg-danger{
+    background-color: rgb(186, 106, 106);
+    color: white;
+    line-height: 120px;
+    height: 120px;
+    width: 120px;
+    text-align: center;
+}

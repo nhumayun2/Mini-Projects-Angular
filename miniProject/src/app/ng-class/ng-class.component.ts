@@ -39,6 +39,9 @@ export class NgClassComponent implements OnInit {
     { studId: 4, name: "David", isActive: true, gender: "Male", state: "CA" },
     { studId: 5, name: "Eve", isActive: false, gender: "Female", state: "NY" }
   ];
+
+  //task 6
+  currentSelectedStudentRow: number | null = null;
   
 
     ngOnInit(): void {
@@ -73,6 +76,11 @@ export class NgClassComponent implements OnInit {
     removeSidePanel(){
       this.sidePanel = false;
       this.firstDivClass = 'col-12';
+    }
+
+    selectStudentRow(val: number){
+      this.currentSelectedStudentRow = val;
+      console.log('selected row: ', this.currentSelectedStudentRow);
     }
 
 }

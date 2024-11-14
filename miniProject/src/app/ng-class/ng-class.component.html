@@ -111,7 +111,7 @@
     [class]="headingClass"
     class="text-2xl font-bold mb-6 rounded-lg bg-blue-500 text-white p-3 text-center"
   >
-    Task 4
+    Task 5
   </h1>
 
   <table class="w-full text-left border-collapse">
@@ -135,6 +135,44 @@
         <td class="p-3 border-t border-gray-300">{{ stds.name }}</td>
         <td class="p-3 border-t border-gray-300">{{ stds.isActive }}</td>
         <td [class.ng-female]="stds.gender == 'Female'" class="p-3 border-t border-gray-300">{{ stds.gender }}</td>
+        <td  class="p-3 border-t border-gray-300">{{ stds.state }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div
+  [class]="firstDivClass"
+  class="p-6 bg-white shadow-lg rounded-lg border border-gray-300 overflow-auto max-h-[500px] transform transition-transform hover:scale-105"
+>
+  <h1
+    [class]="headingClass"
+    class="text-2xl font-bold mb-6 rounded-lg bg-blue-500 text-white p-3 text-center"
+  >
+    Task 6
+  </h1>
+
+  <table class="w-full text-left border-collapse">
+    <thead>
+      <tr class="bg-gray-200 text-gray-700 border-b border-gray-300">
+        <th class="p-3 font-semibold">Student ID</th>
+        <th class="p-3 font-semibold">Name</th>
+        <th class="p-3 font-semibold">Active Status</th>
+        <th class="p-3 font-semibold">Gender</th>
+        <th class="p-3 font-semibold">State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        (click)="selectStudentRow(x)"
+        *ngFor="let stds of students; let x=index"
+        [class.bg-selecd-row]="currentSelectedStudentRow==x"
+        class="hover:bg-gray-100 transition-colors"
+      >
+        <td class="p-3 border-t border-gray-300">{{ stds.studId }}</td>
+        <td class="p-3 border-t border-gray-300">{{ stds.name }}</td>
+        <td class="p-3 border-t border-gray-300">{{ stds.isActive }}</td>
+        <td class="p-3 border-t border-gray-300">{{ stds.gender }}</td>
         <td  class="p-3 border-t border-gray-300">{{ stds.state }}</td>
       </tr>
     </tbody>

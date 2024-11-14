@@ -140,3 +140,8 @@
   .ng-female{
     background-color: rgb(255, 45, 87);
   }
+
+  .bg-selecd-row{
+    background-color: gray;
+    color: white;
+  }
